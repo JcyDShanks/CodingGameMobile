@@ -53,14 +53,12 @@ public class MyAdapter extends BaseAdapter {
             holder=new ViewHolder();
             holder.nametv=(TextView) convertView.findViewById(R.id.name);
             holder.numbertv=(TextView)convertView.findViewById(R.id.number);
-            holder.numbertv.setText(lists.get(position).getNumber());
-            holder.nametv.setText(lists.get(position).getName());
             convertView.setTag(holder);
         }else {
             holder=(ViewHolder) convertView.getTag();
-            holder.numbertv.setText(lists.get(position).getNumber());
-            holder.nametv.setText(lists.get(position).getName());
         }
+        holder.numbertv.setText(lists.get(position).getNumber());
+        holder.nametv.setText(lists.get(position).getName());
         return convertView;
     }
     private static class ViewHolder{
