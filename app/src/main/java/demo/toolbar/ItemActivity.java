@@ -37,28 +37,10 @@ public class ItemActivity extends Activity {
         final Context mContext=this;
         Button buttonCall = (Button) findViewById(R.id.buttonCall);
         Button buttonSMS = (Button) findViewById(R.id.buttonSMS);
-        /*int permissionCheck = ContextCompat.checkSelfPermission(this, Manifest.permission.CALL_PHONE);
-
-        if (permissionCheck != PackageManager.PERMISSION_GRANTED) {
-
-            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CALL_PHONE}, MY_PERMISSIONS_REQUEST_CALL_PHONE);
-        } else {
-
-        }
-        int permissionCheckSMS = ContextCompat.checkSelfPermission(this, Manifest.permission.SEND_SMS);
-
-        if (permissionCheckSMS != PackageManager.PERMISSION_GRANTED) {
-
-            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.SEND_SMS}, MY_PERMISSIONS_REQUEST_SMS);
-        } else {
-
-        }*/
         buttonCall.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Uri uriCall=Uri.parse("tel"+number);
                 Intent intentCall = new Intent(Intent.ACTION_DIAL,Uri.fromParts("tel",number,null));
-                //intent.setData(uriCall);
                 if (ActivityCompat.checkSelfPermission(mContext, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
                     // TODO: Consider calling
                     //    ActivityCompat#requestPermissions
@@ -76,9 +58,7 @@ public class ItemActivity extends Activity {
         buttonSMS.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Uri urisms=Uri.parse(number);
                 Intent intentFinalMessage=new Intent(Intent.ACTION_SENDTO,Uri.parse("smsto:"+number));
-                //intentFinalMessage.setType("vnd.android-dir/mms-sms");
                 if (ActivityCompat.checkSelfPermission(mContext, Manifest.permission.SEND_SMS) != PackageManager.PERMISSION_GRANTED) {
                     // TODO: Consider calling
                     //    ActivityCompat#requestPermissions
